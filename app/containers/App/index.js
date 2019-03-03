@@ -8,21 +8,25 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-
-import GlobalStyle from '../../global-styles';
+import Routes from '../../components/Routes';
+import TopNavigation from '../../components/topNavigation';
+import SideNavigation from '../../components/sideNavigation';
+import Footer from '../../components/Footer';
+import './index.css';
 
 export default function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <GlobalStyle />
-    </div>
+    <Router>
+      <div className="flexible-content">
+        <TopNavigation />
+        <SideNavigation />
+        <main id="content" className="p-5">
+          <Routes />
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
