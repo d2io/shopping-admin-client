@@ -78,6 +78,7 @@ module.exports = {
     'redux-saga/no-yield-in-race': 2,
     'redux-saga/yield-effects': 2,
     'require-yield': 0,
+    'quotes': [2, 'single', { 'avoidEscape': true }],
   },
   settings: {
     'import/resolver': {
