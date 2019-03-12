@@ -1,6 +1,6 @@
-<img src="http://icons.iconarchive.com/icons/google/noto-emoji-objects/256/63007-shopping-cart-icon.png" height=100 alt="shopping cart" align="center" />
-<img src="https://mdbootstrap.com/img/Marketing/general/logo/huge/mdb.png" alt="mdb react" height=100 align="center" />
-<img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="react" height=100 align="center" />
+<img src="http://icons.iconarchive.com/icons/google/noto-emoji-objects/256/63007-shopping-cart-icon.png" height=64 alt="shopping cart" align="center" />
+<img src="https://mdbootstrap.com/img/Marketing/general/logo/huge/mdb.png" alt="mdb react" height=64 align="center" />
+<img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="react" height=64 align="center" />
 
 <br />
 
