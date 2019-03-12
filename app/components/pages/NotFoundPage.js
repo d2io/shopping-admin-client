@@ -1,25 +1,36 @@
-import React from 'react'
+import React from 'react';
 import { MDBCol, MDBRow } from 'mdbreact';
-import logo from "../../assets/mdb-react.png";
+import { FormattedMessage } from 'react-intl';
+import messages from 'components/messages';
+import logo from '../../assets/404_logo.png';
+import bg from '../../assets/404_bg.png';
 
-
-const NotFoundPage =  () => {
+const NotFoundPage = () => {
   return (
     <React.Fragment>
       <div className="full">
         <MDBRow className="bad-gateway-row">
           <MDBCol md="8">
-            <img alt="Error 404" className="img-fluid" hieght="20px" src={logo}/>
-            <h2 className="h2-responsive mt-3 mb-2">404. That's an error.</h2>
-            <h4>The requested URL was not found on this server.</h4>
+            <img
+              alt="Error 404"
+              className="img-fluid"
+              hieght="20px"
+              src={logo}
+            />
+            <h2 className="h2-responsive mt-3 mb-2">
+              <FormattedMessage {...messages.notFoundTitle} />
+            </h2>
+            <h4>
+              <FormattedMessage {...messages.notFoundDesc} />
+            </h4>
           </MDBCol>
           <MDBCol md="4">
-            <img alt="Error 404" className="img-fluid" src="https://mdbootstrap.com/img/Others/grafika404-bf.png"/>
+            <img alt="Error 404" className="img-fluid" src={bg}/>
           </MDBCol>
         </MDBRow>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default NotFoundPage;

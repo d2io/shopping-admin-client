@@ -1,4 +1,8 @@
 {
+  "app.components.Authentication.header": "",
+  "app.components.header": "",
+  "app.components.notFoundDesc": "The requested URL was not found on this server.",
+  "app.components.notFoundTitle": "404. That's an error.",
   "app.containers.HomePage.header": "This is the HomePage container!",
   "app.containers.NotFoundPage.header": "This is the NotFoundPage container!"
 }
