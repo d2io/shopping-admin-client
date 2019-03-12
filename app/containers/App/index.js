@@ -10,9 +10,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import Login from 'containers/AuthenticationContainer/Login';
 import Routes from '../../components/Routes';
 import './index.css';
-import Login from '../../components/Authentication/Login';
 import NotFoundPage from '../../components/pages/NotFoundPage';
 
 const fakeAuth = {
