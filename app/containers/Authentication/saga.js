@@ -24,6 +24,8 @@ function* doSignOut() {
 
 function* doSignIn(data) {
   try {
+    debugger;
+
     const res = yield call(
       axios.post,
       `${API_BASE_URL}/auth/signin`,
