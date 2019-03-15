@@ -1,7 +1,7 @@
 import React from 'react';
 import { MDBIcon, MDBListGroup, MDBListGroupItem } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
-import logo from '../../assets/mdb-react.png';
+import logo from '../../images/skategoat.jpg';
 
 const TopNavigation = () => (
   <div className="sidebar-fixed position-fixed">

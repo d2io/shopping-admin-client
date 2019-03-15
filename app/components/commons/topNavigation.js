@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import {
   MDBCollapse,
-  MDBIcon,
+  MDBDropdown,
+  MDBDropdownItem,
+  MDBDropdownMenu,
+  MDBDropdownToggle,
   MDBNavbar,
   MDBNavbarBrand,
   MDBNavbarNav,
   MDBNavbarToggler,
   MDBNavItem,
-  MDBNavLink,
 } from 'mdbreact';
 
 class TopNavigation extends Component {
@@ -31,87 +33,26 @@ class TopNavigation extends Component {
     return (
       <MDBNavbar className="flexible-navbar" light expand="md" scrolling>
         <MDBNavbarBrand href="/">
-          <strong>MDB</strong>
+          <strong>Admin</strong>
         </MDBNavbarBrand>
         <MDBNavbarToggler onClick={this.onClick} />
         <MDBCollapse isOpen={this.state.collapse} navbar>
-          <MDBNavbarNav left>
-            <MDBNavItem active>
-              <MDBNavLink to="#">Home</MDBNavLink>
-            </MDBNavItem>
-            <MDBNavItem>
-              <a
-                rel="noopener noreferrer"
-                className="nav-link Ripple-parent"
-                href="https://mdbootstrap.com/docs/react/"
-                target="_blank"
-              >
-                About MDB
-              </a>
-            </MDBNavItem>
-            <MDBNavItem>
-              <a
-                rel="noopener noreferrer"
-                className="nav-link Ripple-parent"
-                href="https://mdbootstrap.com/docs/react/getting-started/download/"
-                target="_blank"
-              >
-                Free download
-              </a>
-            </MDBNavItem>
-            <MDBNavItem>
-              <a
-                rel="noopener noreferrer"
-                className="nav-link Ripple-parent"
-                href="https://mdbootstrap.com/bootstrap-tutorial/"
-                target="_blank"
-              >
-                Free tutorials
-              </a>
-            </MDBNavItem>
-          </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
-              <a
-                className="nav-link navbar-link"
-                rel="noopener noreferrer"
-                target="_blank"
-                href="https://pl-pl.facebook.com/mdbootstrap/"
-              >
-                <MDBIcon fab icon="facebook" />
-              </a>
-            </MDBNavItem>
-            <MDBNavItem>
-              <a
-                className="nav-link navbar-link"
-                rel="noopener noreferrer"
-                target="_blank"
-                href="https://twitter.com/mdbootstrap"
-              >
-                <MDBIcon fab icon="twitter" />
-              </a>
-            </MDBNavItem>
-            <MDBNavItem>
-              <a
-                className="border border-light rounded mr-1 nav-link Ripple-parent"
-                rel="noopener noreferrer"
-                href="https://github.com/mdbootstrap/React-Bootstrap-with-Material-Design"
-                target="_blank"
-              >
-                <MDBIcon fab icon="github" className="mr-2" />
-                MDB GitHub
-              </a>
-            </MDBNavItem>
-            <MDBNavItem>
-              <a
-                className="border border-light rounded mr-1 nav-link Ripple-parent"
-                rel="noopener noreferrer"
-                href="https://mdbootstrap.com/products/react-ui-kit/"
-                target="_blank"
-              >
-                <MDBIcon fab icon="github" className="mr-2" />
-                Go Pro
-              </a>
+              <MDBDropdown>
+                <MDBDropdownToggle className="dopdown-toggle" nav>
+                  <img
+                    src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg"
+                    className="rounded-circle z-depth-0"
+                    style={{ height: '35px', padding: 0 }}
+                    alt=""
+                  />
+                </MDBDropdownToggle>
+                <MDBDropdownMenu className="dropdown-default" right>
+                  <MDBDropdownItem href="#!">My account</MDBDropdownItem>
+                  <MDBDropdownItem href="#!">Log out</MDBDropdownItem>
+                </MDBDropdownMenu>
+              </MDBDropdown>
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>

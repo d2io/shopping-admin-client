@@ -5,7 +5,6 @@ import { setAuthToken } from 'utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
 import Cookies from 'js-cookie';
 import { push } from 'connected-react-router/immutable';
-import { API_BASE_URL } from 'components/constants';
 import { SIGNIN_REQUEST, SIGNOUT_REQUEST } from './constants';
 import { setCurrentUser, signInFailed, signoutSuccess } from './actions';
 
@@ -24,33 +23,27 @@ function* doSignOut() {
 
 function* doSignIn(data) {
   try {
-    debugger;
-
-    const res = yield call(
-      axios.post,
-      `${API_BASE_URL}/auth/signin`,
-      data.userData,
-    );
-
-    debugger;
-
-    const { accessToken } = res.data;
+    const res = yield call(axios.post, '/api/auth/signin', data.userData);
+    const { accessToken, tokenType } = res.data;
+    const AUTH_TOKEN = `${tokenType} ${accessToken}`;
+    axios.defaults.headers.common.Authorization = AUTH_TOKEN;
 
     // handleUpdate to cookies
     // if user check remember session, set expire cookie in 1w
     if (data.userData.isRemember) {
-      Cookies.set('token', accessToken, { expires: 7 });
+      Cookies.set('token', AUTH_TOKEN, { expires: 7 });
     } else {
-      Cookies.set('token', accessToken);
+      Cookies.set('token', AUTH_TOKEN);
     }
 
     // set token to Auth header
     setAuthToken(accessToken);
 
-    // decode token to get user data
+    // decode token to get user dataFake
     const plainData = jwtDecode(accessToken);
     // set current user
     yield put(setCurrentUser(plainData));
+    yield put(push('/'));
   } catch (err) {
     yield put(signInFailed(fromJS(err.response.data)));
   }

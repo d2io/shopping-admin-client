@@ -9,7 +9,6 @@ import React from 'react';
 import { MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBContainer, MDBInput, MDBRow } from 'mdbreact';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 // import styled from 'styled-components';
 // import messages from './messages';
 
@@ -25,23 +24,10 @@ class Login extends React.Component {
   }
 
   login = () => {
-    debugger;
-
-    // this.props.onSignIn({
-    //   usernameOrEmail: this.state.usernameOrEmail,
-    //   password: this.state.password,
-    // });
-
-    axios
-      .post('/api/auth/signin', {
-        usernameOrEmail: this.state.usernameOrEmail,
-        password: this.state.password,
-      })
-      .then(res => console.log(res));
-
-    axios.get('/api/auth/test').then(res => console.log(res));
-
-    console.log(JSON.stringify(this.state));
+    this.props.onSignIn({
+      usernameOrEmail: this.state.usernameOrEmail,
+      password: this.state.password,
+    });
   };
 
   handleInput = e => {
