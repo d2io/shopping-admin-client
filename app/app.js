@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import history from 'utils/history';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 import 'sanitize.css/sanitize.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -34,8 +35,11 @@ import { translationMessages } from './i18n';
 
 // axios default config
 axios.defaults.baseURL = 'http://localhost:7991';
-// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['Content-Type'] = 'aapplication/json';
+axios.defaults.headers.common['Authorization'] = Cookies.get('token').replace(
+  '%20',
+  ' ',
+);
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // Create redux store with history
 const initialState = {};
