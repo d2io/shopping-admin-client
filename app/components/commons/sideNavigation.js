@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { MDBIcon, MDBListGroup, MDBListGroupItem } from 'mdbreact';
+import { MDBCollapse, MDBIcon, MDBListGroup, MDBListGroupItem } from 'mdbreact';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import logo from '../../images/skategoat.jpg';
 
 class SideNavigation extends Component {
   constructor(props) {
@@ -10,6 +9,7 @@ class SideNavigation extends Component {
 
     this.state = {
       menuList: [],
+      collapseID: '',
     };
 
     this.fetchMenuEntryData();
@@ -22,36 +22,55 @@ class SideNavigation extends Component {
     });
   };
 
+  toggleCollapse = collapseID => () => {
+    this.setState(prevState => ({
+      collapseID: prevState.collapseID !== collapseID ? collapseID : '',
+    }));
+  };
+
   render() {
     return (
       <div className="sidebar-fixed position-fixed">
-        <a href="#!" className="logo-wrapper waves-effect">
-          <img alt="MDB React Logo" className="img-fluid" src={logo} />
+        {/* <a href="#!" className="logo-wrapper waves-effect"> */}
+        {/* <img */}
+        {/* alt="MDB React Logo" */}
+        {/* className="img-fluid" */}
+        {/* src={logo} */}
+        {/* style={{ height: 100, width: 100 }} */}
+        {/* /> */}
+        {/* </a> */}
+
+        <a href="#" style={{ textAlign: 'center', marginBottom: 20 }}>
+          <h3>ADMIN</h3>
         </a>
 
         <MDBListGroup className="list-group-flush">
           {this.state.menuList
             .filter(menuEntry => !menuEntry.parent)
             .map(menuEntry => (
-              <NavLink
-                exact
-                to={menuEntry.link || '/#'}
-                activeClassName="activeClass"
-              >
-                <MDBListGroupItem>
-                  <MDBIcon
-                    icon={menuEntry.classAtrtibute || ''}
-                    className="mr-3"
-                  />
-                  {menuEntry.name}
-                  <MDBListGroup>
-                    <MDBListGroupItem>asdasdas</MDBListGroupItem>
-                    <MDBListGroupItem>asdasdas</MDBListGroupItem>
-                    <MDBListGroupItem>asdasdas</MDBListGroupItem>
-                    <MDBListGroupItem>asdasdas</MDBListGroupItem>
+              <MDBListGroupItem onClick={this.toggleCollapse(menuEntry.name)}>
+                <MDBIcon
+                  icon={menuEntry.classAtrtibute || ''}
+                  className="mr-3"
+                />
+                {menuEntry.name}
+
+                <MDBCollapse id={menuEntry.name} isOpen={this.state.collapseID}>
+                  <MDBListGroup className="list-group-flush">
+                    {this.state.menuList
+                      .filter(child => child.parent === menuEntry.id)
+                      .map(a => (
+                        <NavLink
+                          exact
+                          to={a.link}
+                          activeClassName="activeClass"
+                        >
+                          <MDBListGroupItem>{a.name}</MDBListGroupItem>
+                        </NavLink>
+                      ))}
                   </MDBListGroup>
-                </MDBListGroupItem>
-              </NavLink>
+                </MDBCollapse>
+              </MDBListGroupItem>
             ))}
         </MDBListGroup>
       </div>

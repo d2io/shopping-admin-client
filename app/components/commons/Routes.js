@@ -8,6 +8,7 @@ import TablesPage from '../pages/TablesPage';
 import MapsPage from '../pages/MapsPage';
 import PrivateRoute from './PrivateRoute';
 import Footer from './Footer';
+import PicturePage from '../pages/PicturePage';
 
 // Import decode token package
 
@@ -25,6 +26,7 @@ class Routes extends React.Component {
             <PrivateRoute path="/profile" component={ProfilePage} />
             <PrivateRoute path="/tables" component={TablesPage} />
             <PrivateRoute path="/maps" component={MapsPage} />
+            <PrivateRoute path="/picture" component={PicturePage} />
             <PrivateRoute render={() => <Redirect path="/404" />} />
           </Switch>
         </main>

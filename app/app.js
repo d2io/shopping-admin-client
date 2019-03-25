@@ -35,10 +35,10 @@ import { translationMessages } from './i18n';
 
 // axios default config
 axios.defaults.baseURL = 'http://localhost:7991';
-axios.defaults.headers.common['Authorization'] = Cookies.get('token').replace(
+axios.defaults.headers.common['Authorization'] = Cookies.get('token') ? Cookies.get('token').replace(
   '%20',
   ' ',
-);
+) : '';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // Create redux store with history

@@ -9,7 +9,7 @@ import ChartSection2 from './sections/ChartSection2';
 import MapSection from './sections/MapSection';
 import ModalSection from './sections/ModalSection';
 
-const DashboardPage =  () => {
+const DashboardPage = () => {
   return (
     <React.Fragment>
       <BreadcrumSection />
@@ -18,12 +18,12 @@ const DashboardPage =  () => {
       <TableSection />
       <ChartSection2 />
       <MDBRow className="mb-4">
-          <MapSection />
-          <ModalSection />
+        <MapSection />
+        <ModalSection />
       </MDBRow>
       <AdminCardSection2 />
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default DashboardPage;
