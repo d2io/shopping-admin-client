@@ -1,8 +1,9 @@
 {
-  "app.components.Authentication.header": "This is the Authentication component!",
+  "app.components.delete": "Xóa",
   "app.components.header": "This is the HomePage container!",
   "app.components.notFoundDesc": "Trang bạn yêu cầu không tìm thấy !",
   "app.components.notFoundTitle": "Lỗi 404 !",
-  "app.containers.HomePage.header": "This is the HomePage container!",
-  "app.containers.NotFoundPage.header": "This is the NotFoundPage container!"
+  "app.components.upload": "Tải lên",
+  "app.components.uploadImg": "Tải ảnh lên",
+  "app.containers.Authentication.header": "This is the Authentication container!"
 }

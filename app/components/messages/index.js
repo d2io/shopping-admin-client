@@ -23,4 +23,24 @@ export default defineMessages({
     id: `${scope}.notFoundDesc`,
     defaultMessage: 'Trang bạn yêu cầu không tìm thấy !',
   },
+
+  uploadImg: {
+    id: `${scope}.uploadImg`,
+    defaultMessage: 'Tải ảnh lên',
+  },
+
+  upload: {
+    id: `${scope}.upload`,
+    defaultMessage: 'Tải lên',
+  },
+
+  delete: {
+    id: `${scope}.delete`,
+    defaultMessage: 'Xóa',
+  },
+
+  dnd: {
+    id: `${scope}.dnd`,
+    defaultMessage: 'Kéo thả tệp vào đây hoặc click',
+  },
 });

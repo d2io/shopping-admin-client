@@ -8,7 +8,7 @@ import TablesPage from '../pages/TablesPage';
 import MapsPage from '../pages/MapsPage';
 import PrivateRoute from './PrivateRoute';
 import Footer from './Footer';
-import PicturePage from '../pages/PicturePage';
+import PicturePage from '../pages/picture/PicturePage';
 
 // Import decode token package
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MDBCollapse, MDBIcon, MDBListGroup, MDBListGroupItem } from 'mdbreact';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
+import logo from 'images/skategoat.jpg';
 
 class SideNavigation extends Component {
   constructor(props) {
@@ -31,29 +32,26 @@ class SideNavigation extends Component {
   render() {
     return (
       <div className="sidebar-fixed position-fixed">
-        {/* <a href="#!" className="logo-wrapper waves-effect"> */}
-        {/* <img */}
-        {/* alt="MDB React Logo" */}
-        {/* className="img-fluid" */}
-        {/* src={logo} */}
-        {/* style={{ height: 100, width: 100 }} */}
-        {/* /> */}
-        {/* </a> */}
-
-        <a href="#" style={{ textAlign: 'center', marginBottom: 20 }}>
-          <h3>ADMIN</h3>
+        <a href="#!" className="logo-wrapper waves-effect">
+          <img alt="MDB React Logo" className="img-fluid" src={logo} />
         </a>
+
+        {/* <a href="#" style={{ textAlign: 'center', marginBottom: 20 }}> */}
+        {/*  <h3>ADMIN</h3> */}
+        {/* </a> */}
 
         <MDBListGroup className="list-group-flush">
           {this.state.menuList
             .filter(menuEntry => !menuEntry.parent)
             .map(menuEntry => (
-              <MDBListGroupItem onClick={this.toggleCollapse(menuEntry.name)}>
-                <MDBIcon
-                  icon={menuEntry.classAtrtibute || ''}
-                  className="mr-3"
-                />
-                {menuEntry.name}
+              <MDBListGroupItem>
+                <div onClick={this.toggleCollapse(menuEntry.name)}>
+                  <MDBIcon
+                    icon={menuEntry.classAtrtibute || ''}
+                    className="mr-3"
+                  />
+                  {menuEntry.name}
+                </div>
 
                 <MDBCollapse id={menuEntry.name} isOpen={this.state.collapseID}>
                   <MDBListGroup className="list-group-flush">
