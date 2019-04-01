@@ -14,7 +14,6 @@ class PictureInfo extends React.Component {
     super(props);
 
     this.state = {
-      imgSrc: this.props.imgSrc || '',
       title: this.props.title || '',
       alt: this.props.alt || '',
       link: this.props.link || '',
@@ -22,13 +21,24 @@ class PictureInfo extends React.Component {
     };
   }
 
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+
+    this.props.updateImageInfo(this.props.index, {
+      ...this.state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   render() {
     return (
       <MDBCard className="my-5 p-3">
         <MDBRow center>
           <MDBCol size="4" middle>
             <img
-              src={this.state.imgSrc || 'https://i.imgur.com/Fu5Ffo4.jpg'}
+              src={this.props.imgSrc || 'https://i.imgur.com/Fu5Ffo4.jpg'}
               alt={this.state.alt}
               className="img-thumbnail rounded"
               height={200}
@@ -39,7 +49,9 @@ class PictureInfo extends React.Component {
             <div className="grey-text">
               <MDBInput
                 label="Tiêu đề"
-                valueDefault={this.state.title}
+                name="title"
+                value={this.state.title}
+                onChange={this.handleChange}
                 icon="pencil-alt"
                 group
                 type="text"
@@ -49,7 +61,9 @@ class PictureInfo extends React.Component {
               />
               <MDBInput
                 label="Alt"
-                valueDefault={this.state.alt}
+                name="alt"
+                value={this.state.alt}
+                onChange={this.handleChange}
                 icon="puzzle-piece"
                 group
                 type="text"
@@ -59,7 +73,9 @@ class PictureInfo extends React.Component {
               />
               <MDBInput
                 label="Đường dẫn"
-                valueDefault={this.state.link}
+                name="link"
+                value={this.state.link}
+                onChange={this.handleChange}
                 icon="link"
                 group
                 type="email"
@@ -69,7 +85,9 @@ class PictureInfo extends React.Component {
               />
               <MDBInput
                 label="Thông tin"
-                valueDefault={this.state.summary}
+                name="summary"
+                value={this.state.summary}
+                onChange={this.handleChange}
                 icon="info-circle"
                 group
                 type="text"
@@ -85,7 +103,7 @@ class PictureInfo extends React.Component {
           <MDBCol size="3">
             <MDBBtn
               color="danger"
-              onClick={() => this.props.onRemove(this.state.title)}
+              onClick={() => this.props.onRemove(this.props.index)}
             >
               <FormattedMessage {...messages.delete} />{' '}
               <MDBIcon icon="trash-alt" className="ml-1" />

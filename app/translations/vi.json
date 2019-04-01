@@ -1,5 +1,6 @@
 {
   "app.components.delete": "Xóa",
+  "app.components.dnd": "Kéo thả tệp vào đây hoặc click",
   "app.components.header": "This is the HomePage container!",
   "app.components.notFoundDesc": "Trang bạn yêu cầu không tìm thấy !",
   "app.components.notFoundTitle": "Lỗi 404 !",

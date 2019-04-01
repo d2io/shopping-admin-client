@@ -19,32 +19,54 @@ class PicturePage extends React.Component {
   }
 
   uploadImages = () => {
-    const data = new FormData();
-    const acceptedFiles = this.state.imgList.slice();
+    this.state.imgList.slice().map(img => {
+      const imgData = new FormData();
 
-    acceptedFiles.map(file => {
-      data.append('file', file);
+      imgData.append('file', img.file);
+      imgData.append('title', img.title);
+      imgData.append('alt', img.alt);
+      imgData.append('link', img.link);
+      imgData.append('summary', img.summary);
+
+      axios
+        .post('/picture/add', imgData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then(res => console.log(res.data))
+        .catch(err => console.log(JSON.stringify(err)));
     });
-
-    axios
-      .post('/uploadMultiple', data)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(JSON.stringify(err)));
   };
 
   onFilesAdded = files => {
-    console.log(files);
-    files.map(file => console.log(file.name));
-    files.map(file => console.log(file.lastModified));
+    const tmpImgList = files.map(file => ({
+      file,
+      title: file.name,
+      alt: `${file.lastModified}_${file.name}`,
+      link: `${file.lastModified}_${file.name}`,
+      summary: `${file.lastModified}_${file.name}`,
+    }));
+
     this.setState({
-      imgList: files,
+      imgList: tmpImgList,
     });
   };
 
-  onRemove = name => {
+  onRemove = index => {
     const newImgList = this.state.imgList
       .slice()
-      .filter(img => img.name !== name);
+      .filter((img, i) => i !== index);
+
+    this.setState({
+      imgList: newImgList,
+    });
+  };
+
+  onUpdateImageInfo = (index, newImgInfo) => {
+    const newImgList = this.state.imgList
+      .slice()
+      .map((imgInfo, i) => (i === index ? newImgInfo : imgInfo));
 
     this.setState({
       imgList: newImgList,
@@ -67,16 +89,18 @@ class PicturePage extends React.Component {
               <option value="3">Option 3</option>
             </select>
 
-            {this.state.imgList.map(img => (
+            {this.state.imgList.map((img, index) => (
               <PictureInfo
                 className="m-5"
-                key={img.lastModified}
-                imgSrc={URL.createObjectURL(img)}
-                title={img.name}
-                alt={`${img.lastModified}_${img.name}`}
-                link={`${img.lastModified}_${img.name}`}
-                summary={`${img.lastModified}_${img.name}`}
+                index={index}
+                key={img.file.lastModified}
+                imgSrc={URL.createObjectURL(img.file)}
+                title={img.title}
+                alt={img.alt}
+                link={img.link}
+                summary={img.summary}
                 onRemove={this.onRemove}
+                updateImageInfo={this.onUpdateImageInfo}
               />
             ))}
 

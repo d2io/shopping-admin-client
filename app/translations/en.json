@@ -1,5 +1,6 @@
 {
   "app.components.delete": "",
+  "app.components.dnd": "",
   "app.components.header": "",
   "app.components.notFoundDesc": "The requested URL was not found on this server.",
   "app.components.notFoundTitle": "404. That's an error.",
