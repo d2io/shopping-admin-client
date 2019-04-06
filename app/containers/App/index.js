@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Spinner from 'components/commons/Spinner';
@@ -98,6 +98,7 @@ class App extends React.Component {
           <Route path="/login" component={Login} />
           <Route path="/404" component={NotFoundPage} />
           <Route component={Routes} />
+          <Route render={() => <Redirect path="/404" />} />
         </Switch>
       </div>
     );

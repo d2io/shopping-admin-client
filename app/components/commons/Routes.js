@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import TopNavigation from './topNavigation';
 import SideNavigation from './sideNavigation';
 import DashboardPage from '../pages/DashboardPage';
@@ -9,6 +9,9 @@ import MapsPage from '../pages/MapsPage';
 import PrivateRoute from './PrivateRoute';
 import Footer from './Footer';
 import PicturePage from '../pages/picture/PicturePage';
+import PictureTypePage from '../pages/picture/PictureTypeContainer';
+import PictureTypeDetail from '../pages/picture/PictureTypeDetail';
+import PictureTypeUpdate from '../pages/picture/PictureTypeUpdate';
 
 // Import decode token package
 
@@ -27,7 +30,21 @@ class Routes extends React.Component {
             <PrivateRoute path="/tables" component={TablesPage} />
             <PrivateRoute path="/maps" component={MapsPage} />
             <PrivateRoute path="/picture" component={PicturePage} />
-            <PrivateRoute render={() => <Redirect path="/404" />} />
+            <PrivateRoute
+              exact
+              path="/picture-type"
+              component={PictureTypePage}
+            />
+            <PrivateRoute
+              exact
+              path="/picture-type/detail"
+              component={PictureTypeDetail}
+            />
+            <PrivateRoute
+              exact
+              path="/picture-type/update"
+              component={PictureTypeUpdate}
+            />
           </Switch>
         </main>
 

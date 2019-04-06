@@ -29,7 +29,7 @@ class PicturePage extends React.Component {
       imgData.append('summary', img.summary);
 
       axios
-        .post('/picture/add', imgData, {
+        .post('/api/v1/picture/add', imgData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },

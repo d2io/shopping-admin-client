@@ -12,15 +12,15 @@ class SideNavigation extends Component {
       menuList: [],
       collapseID: '',
     };
-
-    this.fetchMenuEntryData();
   }
 
   fetchMenuEntryData = () => {
-    axios.get('/api/page').then(res => {
-      console.log(JSON.stringify(res.data));
-      this.setState({ menuList: res.data });
-    });
+    axios
+      .get('/api/page')
+      .then(res => {
+        this.setState({ menuList: res.data });
+      })
+      .catch(err => console.log(err));
   };
 
   toggleCollapse = collapseID => () => {
@@ -29,6 +29,10 @@ class SideNavigation extends Component {
     }));
   };
 
+  componentDidMount() {
+    this.fetchMenuEntryData();
+  }
+
   render() {
     return (
       <div className="sidebar-fixed position-fixed">
@@ -36,15 +40,11 @@ class SideNavigation extends Component {
           <img alt="MDB React Logo" className="img-fluid" src={logo} />
         </a>
 
-        {/* <a href="#" style={{ textAlign: 'center', marginBottom: 20 }}> */}
-        {/*  <h3>ADMIN</h3> */}
-        {/* </a> */}
-
         <MDBListGroup className="list-group-flush">
           {this.state.menuList
             .filter(menuEntry => !menuEntry.parent)
             .map(menuEntry => (
-              <MDBListGroupItem>
+              <MDBListGroupItem key={menuEntry.id}>
                 <div onClick={this.toggleCollapse(menuEntry.name)}>
                   <MDBIcon
                     icon={menuEntry.classAtrtibute || ''}
@@ -60,6 +60,7 @@ class SideNavigation extends Component {
                       .map(a => (
                         <NavLink
                           exact
+                          key={a.id}
                           to={a.link}
                           activeClassName="activeClass"
                         >

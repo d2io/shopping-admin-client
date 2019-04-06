@@ -14,13 +14,9 @@ const mapStateToProps = state => ({
   auth: state.get('auth'),
 });
 
-const mapDispatchToProps = dispatch => {
-  debugger;
-
-  return {
-    onSignIn: userData => dispatch(signInRequest(userData)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onSignIn: userData => dispatch(signInRequest(userData)),
+});
 
 export default connect(
   mapStateToProps,
