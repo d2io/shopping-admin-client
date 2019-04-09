@@ -76,7 +76,9 @@ class Login extends React.Component {
                     />
                   </div>
                   <div className="text-center">
-                    <MDBBtn onClick={this.login}>Login</MDBBtn>
+                    <MDBBtn onClick={this.login} active>
+                      Login
+                    </MDBBtn>
                   </div>
                 </form>
               </MDBCardBody>

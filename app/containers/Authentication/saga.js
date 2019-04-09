@@ -23,7 +23,7 @@ function* doSignOut() {
 
 function* doSignIn(data) {
   try {
-    const res = yield call(axios.post, '/api/auth/signin', data.userData);
+    const res = yield call(axios.post, '/api/v1/auth/signin', data.userData);
     const { accessToken, tokenType } = res.data;
     const AUTH_TOKEN = `${tokenType} ${accessToken}`;
     axios.defaults.headers.common.Authorization = AUTH_TOKEN;

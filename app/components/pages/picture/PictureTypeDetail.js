@@ -14,9 +14,6 @@ class PictureTypeDetail extends React.Component {
     new URLSearchParams(this.props.location.search).get('action');
 
   render() {
-    console.log(`props is ${JSON.stringify(this.props)}`);
-    console.log(`action type is ${JSON.stringify(this.getActionType())}`);
-
     const { type } = this.props.location.state;
 
     return (

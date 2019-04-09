@@ -16,7 +16,7 @@ class SideNavigation extends Component {
 
   fetchMenuEntryData = () => {
     axios
-      .get('/api/page')
+      .get('/api/v1/page')
       .then(res => {
         this.setState({ menuList: res.data });
       })

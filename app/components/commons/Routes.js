@@ -11,7 +11,7 @@ import Footer from './Footer';
 import PicturePage from '../pages/picture/PicturePage';
 import PictureTypePage from '../pages/picture/PictureTypeContainer';
 import PictureTypeDetail from '../pages/picture/PictureTypeDetail';
-import PictureTypeUpdate from '../pages/picture/PictureTypeUpdate';
+import PictureTypeAddOrUpdate from '../pages/picture/PictureTypeAddOrUpdate';
 
 // Import decode token package
 
@@ -43,7 +43,7 @@ class Routes extends React.Component {
             <PrivateRoute
               exact
               path="/picture-type/update"
-              component={PictureTypeUpdate}
+              component={PictureTypeAddOrUpdate}
             />
           </Switch>
         </main>

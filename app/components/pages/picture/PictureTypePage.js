@@ -4,7 +4,7 @@
  *
  */
 import React from 'react';
-import { MDBBadge, MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBDataTable, MDBIcon, MDBRow, MDBView } from 'mdbreact';
+import { MDBBadge, MDBCard, MDBCardBody, MDBCol, MDBDataTable, MDBIcon, MDBRow, MDBView } from 'mdbreact';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -131,11 +131,14 @@ class PictureTypePage extends React.Component {
             </MDBView>
 
             <MDBCardBody>
-              <h3 className="mt-5 text-left">
-                <MDBBtn>
-                  <MDBIcon icon="pen" />
-                </MDBBtn>
-              </h3>
+              <Link
+                to={{
+                  pathname: '/picture-type',
+                  search: '?action=add',
+                }}
+              >
+                <MDBIcon icon="pen" className="green-text mx-1" />
+              </Link>
 
               <MDBDataTable
                 responsive
