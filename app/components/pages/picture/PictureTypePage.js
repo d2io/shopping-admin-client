@@ -47,7 +47,6 @@ const ActionBtn = ({ type }) => (
     <Link
       to={{
         pathname: '/picture-type/detail',
-        search: '?action=view',
         state: { type },
       }}
     >
@@ -57,7 +56,6 @@ const ActionBtn = ({ type }) => (
     <Link
       to={{
         pathname: '/picture-type/update',
-        search: '?action=update',
         state: { type },
       }}
     >

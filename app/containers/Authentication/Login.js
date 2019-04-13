@@ -6,7 +6,7 @@
 
 // import React from 'react';
 import { connect } from 'react-redux';
-import Login from 'components/auth/Login';
+import MaterialLogin from 'components/auth/Login';
 import { signInRequest } from './actions';
 
 const mapStateToProps = state => ({
@@ -21,4 +21,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Login);
+)(MaterialLogin);

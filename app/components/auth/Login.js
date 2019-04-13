@@ -1,18 +1,58 @@
 /**
- *
- * Authentication
+ * Author: DuongHan
+ * Created: 4/11/19
  *
  */
 
 import React from 'react';
-// import { FormattedMessage } from 'react-intl';
-import { MDBBtn, MDBCard, MDBCardBody, MDBCol, MDBContainer, MDBInput, MDBRow } from 'mdbreact';
-import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
-// import messages from './messages';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import withStyles from '@material-ui/core/styles/withStyles';
+import { Redirect } from 'react-router-dom';
 
-/* eslint-disable react/prefer-stateless-function */
+const styles = theme => ({
+  main: {
+    width: 'auto',
+    display: 'block', // Fix IE 11 issue.
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+      width: 400,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+  },
+  paper: {
+    marginTop: theme.spacing.unit * 8,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme
+      .spacing.unit * 3}px`,
+  },
+  avatar: {
+    margin: theme.spacing.unit,
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing.unit,
+  },
+  submit: {
+    marginTop: theme.spacing.unit * 3,
+  },
+});
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -37,6 +77,7 @@ class Login extends React.Component {
   };
 
   render() {
+    const { classes } = this.props;
     const { redirectToReferrer } = this.state;
 
     if (redirectToReferrer === true) {
@@ -44,54 +85,61 @@ class Login extends React.Component {
     }
 
     return (
-      <MDBContainer className="p-5">
-        <MDBRow center>
-          <MDBCol md="6">
-            <MDBCard>
-              <MDBCardBody>
-                <form>
-                  <p className="h5 text-center mb-4">Sign in</p>
-                  <div className="grey-text">
-                    <MDBInput
-                      label="Type your user name"
-                      icon="user"
-                      group
-                      type="text"
-                      validate
-                      name="usernameOrEmail"
-                      error="wrong"
-                      success="right"
-                      value={this.state.usernameOrEmail}
-                      onInput={this.handleInput}
-                    />
-                    <MDBInput
-                      label="Type your password"
-                      icon="lock"
-                      group
-                      type="password"
-                      name="password"
-                      validate
-                      value={this.state.password}
-                      onInput={this.handleInput}
-                    />
-                  </div>
-                  <div className="text-center">
-                    <MDBBtn onClick={this.login} active>
-                      Login
-                    </MDBBtn>
-                  </div>
-                </form>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+      <main className={classes.main}>
+        <CssBaseline />
+        <Paper className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+          <form className={classes.form}>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="email">Email Address</InputLabel>
+              <Input
+                id="usernameOrEmail"
+                name="usernameOrEmail"
+                autoComplete="email"
+                autoFocus
+                value={this.state.usernameOrEmail}
+                onChange={this.handleInput}
+              />
+            </FormControl>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input
+                name="password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value={this.state.password}
+                onChange={this.handleInput}
+              />
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={this.login}
+            >
+              Sign in
+            </Button>
+          </form>
+        </Paper>
+      </main>
     );
   }
 }
 
 Login.propTypes = {
+  classes: PropTypes.object.isRequired,
   onSignIn: PropTypes.func,
 };
 
-export default Login;
+export default withStyles(styles)(Login);

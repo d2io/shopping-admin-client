@@ -7,16 +7,36 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { MDBBtn, MDBCard, MDBCol, MDBContainer, MDBIcon, MDBInput, MDBRow } from 'mdbreact';
+import { matchPath } from 'react-router-dom';
 
 class PictureTypeAddOrUpdate extends React.Component {
+  constructor(props) {
+    super(props);
+
+    const matcher = matchPath(this.props.location.pathname, {
+      path: '/picture-type/:action',
+      exact: true,
+      strict: false,
+    });
+
+    this.state = {
+      data: this.props.location.state.type,
+      isUpdate: matcher.params.action === 'update',
+    };
+  }
+
   render() {
     return (
       <MDBContainer fluid>
         <MDBRow center>
           <MDBCol md="8">
-            <MDBCard className="px-5">
+            <MDBCard className="p-5">
               <form>
-                <p className="h5 text-center mb-4">{this.props.title}</p>
+                <p className="h5 text-center mb-4">
+                  {this.state.isUpdate
+                    ? 'Cập nhật kiểu hình ảnh'
+                    : 'Thêm mới kiểu hình ảnh'}
+                </p>
 
                 <div className="grey-text">
                   <MDBInput
@@ -27,6 +47,7 @@ class PictureTypeAddOrUpdate extends React.Component {
                     validate
                     error="wrong"
                     success="right"
+                    value={this.state.data.name}
                   />
                   <MDBInput
                     label="SEO URI"
@@ -45,6 +66,7 @@ class PictureTypeAddOrUpdate extends React.Component {
                     validate
                     error="wrong"
                     success="right"
+                    value={this.state.data.seoTitle}
                   />
                   <MDBInput
                     label="SEO Description"
@@ -54,6 +76,7 @@ class PictureTypeAddOrUpdate extends React.Component {
                     validate
                     error="wrong"
                     success="right"
+                    value={this.state.data.seoDescription}
                   />
                   <MDBInput
                     label="SEO Keyword"
@@ -63,6 +86,7 @@ class PictureTypeAddOrUpdate extends React.Component {
                     validate
                     error="wrong"
                     success="right"
+                    value={this.state.data.seoKeyword}
                   />
                   <MDBInput
                     label="Nhóm"
@@ -72,6 +96,7 @@ class PictureTypeAddOrUpdate extends React.Component {
                     validate
                     error="wrong"
                     success="right"
+                    value={this.state.data.seoDescription}
                   />
                   <MDBInput
                     label="Số hiệu"
@@ -81,7 +106,9 @@ class PictureTypeAddOrUpdate extends React.Component {
                     validate
                     error="wrong"
                     success="right"
+                    value={this.state.data.number}
                   />
+                  <MDBSwitch checked={this.state.isShow} />
                   <MDBInput
                     label="Hiển thị"
                     icon="user"
@@ -90,6 +117,7 @@ class PictureTypeAddOrUpdate extends React.Component {
                     validate
                     error="wrong"
                     success="right"
+                    value={this.state.data.isShow}
                   />
                   <MDBInput
                     label="Ảnh loại hình ảnh"
@@ -108,6 +136,7 @@ class PictureTypeAddOrUpdate extends React.Component {
                     validate
                     error="wrong"
                     success="right"
+                    value={this.state.data.detail}
                   />
                 </div>
                 <div className="text-center">
@@ -131,5 +160,5 @@ class PictureTypeAddOrUpdate extends React.Component {
 export default PictureTypeAddOrUpdate;
 
 PictureTypeAddOrUpdate.propTypes = {
-  title: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };

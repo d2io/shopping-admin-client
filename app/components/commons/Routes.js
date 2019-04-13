@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
 import TopNavigation from './topNavigation';
-import SideNavigation from './sideNavigation';
 import DashboardPage from '../pages/DashboardPage';
 import ProfilePage from '../pages/ProfilePage';
 import TablesPage from '../pages/TablesPage';
@@ -12,15 +11,29 @@ import PicturePage from '../pages/picture/PicturePage';
 import PictureTypePage from '../pages/picture/PictureTypeContainer';
 import PictureTypeDetail from '../pages/picture/PictureTypeDetail';
 import PictureTypeAddOrUpdate from '../pages/picture/PictureTypeAddOrUpdate';
+import Sidebar from './Sidebar';
 
 // Import decode token package
 
 class Routes extends React.Component {
+  state = {
+    mobileOpen: false,
+  };
+
+  handleDrawerToggle = () => {
+    this.setState({ mobileOpen: !this.state.mobileOpen });
+  };
+
   render() {
     return (
       <div>
         <TopNavigation />
-        <SideNavigation />
+
+        <Sidebar
+          handleDrawerToggle={this.handleDrawerToggle}
+          open={this.state.mobileOpen}
+          {...this.props}
+        />
 
         <main id="content" className="p-5">
           <Switch>
