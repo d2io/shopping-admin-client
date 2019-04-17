@@ -1,14 +1,6 @@
-import {
-  blackColor,
-  defaultFont,
-  grayColor,
-  hexToRgb,
-  primaryBoxShadow,
-  primaryColor,
-  whiteColor,
-} from 'assets/jss/material-dashboard-react';
+import { blackColor, defaultFont, grayColor, hexToRgb, primaryBoxShadow, primaryColor, whiteColor } from './commons';
 
-const dropdownStyle = theme => ({
+const dropdown = theme => ({
   buttonLink: {
     [theme.breakpoints.down('md')]: {
       display: 'flex',
@@ -120,4 +112,4 @@ const dropdownStyle = theme => ({
   },
 });
 
-export default dropdownStyle;
+export default dropdown;

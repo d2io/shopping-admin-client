@@ -1,9 +1,9 @@
-import { dangerColor, defaultFont, whiteColor } from 'assets/jss/material-dashboard-react';
+import { dangerColor, defaultFont, whiteColor } from '../commons';
 
-import dropdownStyle from 'assets/jss/material-dashboard-react/dropdownStyle';
+import dropdown from '../dropdown';
 
 const headerLinksStyle = theme => ({
-  ...dropdownStyle(theme),
+  ...dropdown(theme),
   search: {
     '& > div': {
       marginTop: '0',
