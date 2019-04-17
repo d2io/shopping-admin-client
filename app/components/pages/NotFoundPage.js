@@ -2,8 +2,8 @@ import React from 'react';
 import { MDBCol, MDBRow } from 'mdbreact';
 import { FormattedMessage } from 'react-intl';
 import messages from 'components/messages';
-import logo from '../../images/404_logo.png';
-import bg from '../../images/404_bg.png';
+import logo from '../../assets/img/icons/404_logo.png';
+import bg from '../../assets/img/icons/404_bg.png';
 
 const NotFoundPage = () => (
   <React.Fragment>

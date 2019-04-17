@@ -11,7 +11,7 @@ import PicturePage from '../pages/picture/PicturePage';
 import PictureTypePage from '../pages/picture/PictureTypeContainer';
 import PictureTypeDetail from '../pages/picture/PictureTypeDetail';
 import PictureTypeAddOrUpdate from '../pages/picture/PictureTypeAddOrUpdate';
-import Sidebar from './Sidebar';
+import Sidebar from './sidebar';
 
 // Import decode token package
 

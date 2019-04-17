@@ -15,7 +15,7 @@ environment:
 
 # Fix line endings in Windows. (runs before repo cloning)
 init:
-  - git config --global core.autocrlf input
+  - git config --global core.autocrlf Input
 
 # Install scripts--runs after repo cloning
 install:

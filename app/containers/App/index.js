@@ -14,14 +14,14 @@ import PropTypes from 'prop-types';
 import Spinner from 'components/commons/Spinner';
 import Routes from 'components/commons/Routes';
 import NotFoundPage from 'components/pages/NotFoundPage';
-import { ACCESS_TOKEN } from 'components/constants';
+import { ACCESS_TOKEN } from 'config/constants';
 import { getCurrentUser } from 'utils/APIUtils';
 import './index.css';
 import { compose } from 'redux';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+import saga from '../../sagas';
 import Login from '../Authentication/Login';
-import saga from '../Authentication/saga';
 import reducer from '../Authentication/reducer';
 
 class App extends React.Component {
@@ -110,7 +110,7 @@ App.propTypes = {
 };
 
 const withReducer = injectReducer({ key: 'auth', reducer });
-const withSaga = injectSaga({ key: 'auth', saga });
+const withSaga = injectSaga({ key: 'rootSaga', saga });
 
 export default compose(
   withReducer,

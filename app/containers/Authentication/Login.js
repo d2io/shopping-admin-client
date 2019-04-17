@@ -6,7 +6,7 @@
 
 // import React from 'react';
 import { connect } from 'react-redux';
-import MaterialLogin from 'components/auth/Login';
+import MaterialLogin from 'components/login/Login';
 import { signInRequest } from './actions';
 
 const mapStateToProps = state => ({

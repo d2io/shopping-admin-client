@@ -4,7 +4,7 @@
  *
  */
 
-import { ACCESS_TOKEN, API_BASE_URL, POLL_LIST_SIZE } from 'components/constants';
+import { ACCESS_TOKEN, API_BASE_URL, POLL_LIST_SIZE } from 'config/constants';
 
 const request = options => {
   const headers = new Headers({

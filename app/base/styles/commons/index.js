@@ -16,10 +16,10 @@
 
 // ##############################
 // // // Function that converts from hex color to rgb color
-// // // Example: input = #9c27b0 => output = 156, 39, 176
-// // // Example: input = 9c27b0 => output = 156, 39, 176
-// // // Example: input = #999 => output = 153, 153, 153
-// // // Example: input = 999 => output = 153, 153, 153
+// // // Example: Input = #9c27b0 => output = 156, 39, 176
+// // // Example: Input = 9c27b0 => output = 156, 39, 176
+// // // Example: Input = #999 => output = 153, 153, 153
+// // // Example: Input = 999 => output = 153, 153, 153
 // #############################
 const hexToRgb = rawInput => {
   let refinedInput = `${rawInput}`;
@@ -30,6 +30,7 @@ const hexToRgb = rawInput => {
     !hexRegex.test(refinedInput) ||
     (refinedInput.length !== 3 && refinedInput.length !== 6)
   ) {
+    console.log(`refinedInput is ${refinedInput}`);
     throw new Error('refinedInput is not a valid hex color.');
   }
   if (refinedInput.length === 3) {

@@ -14,7 +14,7 @@ const setAuthToken = token => {
     axios.defaults.headers.common.Authorization = token;
     config.headers.Authorization = token;
   } else {
-    // delete auth header
+    // delete login header
     delete axios.defaults.headers.common.Authorization;
   }
 };

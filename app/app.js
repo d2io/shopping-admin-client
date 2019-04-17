@@ -26,7 +26,7 @@ import App from 'containers/App';
 import LanguageProvider from 'containers/LanguageProvider';
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
-import '!file-loader?name=[name].[ext]!./images/favicon.ico';
+import '!file-loader?name=[name].[ext]!./assets/img/icons/favicon.ico';
 import 'file-loader?name=.htaccess!./.htaccess';
 import configureStore from './configureStore';
 // Import i18n messages
@@ -35,10 +35,9 @@ import { translationMessages } from './i18n';
 
 // axios default config
 axios.defaults.baseURL = 'http://localhost:7991';
-axios.defaults.headers.common['Authorization'] = Cookies.get('token') ? Cookies.get('token').replace(
-  '%20',
-  ' ',
-) : '';
+axios.defaults.headers.common.Authorization = Cookies.get('token')
+  ? Cookies.get('token').replace('%20', ' ')
+  : '';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // Create redux store with history

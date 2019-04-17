@@ -15,10 +15,10 @@ import Notifications from '@material-ui/icons/Notifications';
 import Dashboard from '@material-ui/icons/Dashboard';
 import Search from '@material-ui/icons/Search';
 // core components
-import CustomInput from 'components/custom/input/CustomInput';
-import Button from 'components/custom/button/CustomButton';
+import CustomInput from 'components/custom/Input/CustomInput';
+import Button from 'components/custom/Button/CustomButton';
 
-import rtlHeaderLinksStyle from 'assets/jss/material-dashboard-react/components/rtlHeaderLinksStyle';
+import rtlHeaderLinksStyle from 'assets/styles/material-dashboard-react/components/rtlHeaderLinksStyle';
 
 class HeaderLinks extends React.Component {
   state = {

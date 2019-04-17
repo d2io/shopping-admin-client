@@ -26,7 +26,7 @@ class PictureInfo extends React.Component {
       [e.target.name]: e.target.value,
     });
 
-    this.props.updateImageInfo(this.props.index, {
+    this.props.updateImageInfo(this.props.reducers, {
       ...this.state,
       [e.target.name]: e.target.value,
     });
@@ -103,7 +103,7 @@ class PictureInfo extends React.Component {
           <MDBCol size="3">
             <MDBBtn
               color="danger"
-              onClick={() => this.props.onRemove(this.props.index)}
+              onClick={() => this.props.onRemove(this.props.reducers)}
             >
               <FormattedMessage {...messages.delete} />{' '}
               <MDBIcon icon="trash-alt" className="ml-1" />

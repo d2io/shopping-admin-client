@@ -5,6 +5,7 @@ import { setAuthToken } from 'utils/setAuthToken';
 import jwtDecode from 'jwt-decode';
 import Cookies from 'js-cookie';
 import { push } from 'connected-react-router/immutable';
+
 import { SIGNIN_REQUEST, SIGNOUT_REQUEST } from './constants';
 import { setCurrentUser, signInFailed, signoutSuccess } from './actions';
 
@@ -13,7 +14,7 @@ function* doSignOut() {
   // remove token from Cookies
   Cookies.remove('token');
 
-  // remove auth header for future request
+  // remove login header for future request
   setAuthToken(false);
 
   // set current user to empty object
@@ -23,7 +24,7 @@ function* doSignOut() {
 
 function* doSignIn(data) {
   try {
-    const res = yield call(axios.post, '/api/v1/auth/signin', data.userData);
+    const res = yield call(axios.post, '/api/v1/login/signin', data.userData);
     const { accessToken, tokenType } = res.data;
     const AUTH_TOKEN = `${tokenType} ${accessToken}`;
     axios.defaults.headers.common.Authorization = AUTH_TOKEN;
@@ -41,8 +42,12 @@ function* doSignIn(data) {
 
     // decode token to get user dataFake
     const plainData = jwtDecode(accessToken);
-    // set current user
+
     yield put(setCurrentUser(plainData));
+    yield put({ type: 'INIT_SIDEBAR_ROUTES' });
+    // yield take(initSidebarRoutes());
+
+    // after login succeed, redirect from  login page to admin dashboard page (homepage)
     yield put(push('/'));
   } catch (err) {
     yield put(signInFailed(fromJS(err.response.data)));
