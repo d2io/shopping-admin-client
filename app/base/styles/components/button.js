@@ -44,7 +44,7 @@ const button = {
       color: whiteColor,
       backgroundColor: grayColor[0],
       boxShadow: `0 14px 26px -12px rgba(${hexToRgb(
-        hexToRgb(grayColor[0]),
+        grayColor[0],
       )}, 0.42), 0 4px 23px 0px rgba(${hexToRgb(
         blackColor,
       )}, 0.12), 0 8px 10px -5px rgba(${hexToRgb(grayColor[0])}, 0.2)`,
@@ -98,9 +98,9 @@ const button = {
     '&:hover,&:focus': {
       backgroundColor: roseColor[0],
       boxShadow: `0 14px 26px -12px rgba(${hexToRgb(
-        hexToRgb(roseColor[0]),
+        roseColor[0],
       )}, 0.42), 0 4px 23px 0px rgba(${hexToRgb(
-        hexToRgb(blackColor),
+        blackColor,
       )}, 0.12), 0 8px 10px -5px rgba(${hexToRgb(roseColor[0])}, 0.2)`,
     },
   },
@@ -116,7 +116,7 @@ const button = {
       boxShadow: `0 14px 26px -12px rgba(${hexToRgb(
         primaryColor[0],
       )}, 0.42), 0 4px 23px 0px rgba(${hexToRgb(
-        hexToRgb(blackColor),
+        blackColor,
       )}, 0.12), 0 8px 10px -5px rgba(${hexToRgb(primaryColor[0])}, 0.2)`,
     },
   },
@@ -132,7 +132,7 @@ const button = {
       boxShadow: `0 14px 26px -12px rgba(${hexToRgb(
         infoColor[0],
       )}, 0.42), 0 4px 23px 0px rgba(${hexToRgb(
-        hexToRgb(blackColor),
+        blackColor,
       )}, 0.12), 0 8px 10px -5px rgba(${hexToRgb(infoColor[0])}, 0.2)`,
     },
   },
@@ -148,7 +148,7 @@ const button = {
       boxShadow: `0 14px 26px -12px rgba(${hexToRgb(
         successColor[0],
       )}, 0.42), 0 4px 23px 0px rgba(${hexToRgb(
-        hexToRgb(blackColor),
+        blackColor,
       )}, 0.12), 0 8px 10px -5px rgba(${hexToRgb(successColor[0])}, 0.2)`,
     },
   },
@@ -162,9 +162,9 @@ const button = {
     '&:hover,&:focus': {
       backgroundColor: warningColor[0],
       boxShadow: `0 14px 26px -12px rgba(${hexToRgb(
-        hexToRgb(warningColor[0]),
+        warningColor[0],
       )}, 0.42), 0 4px 23px 0px rgba(${hexToRgb(
-        hexToRgb(blackColor),
+        blackColor,
       )}, 0.12), 0 8px 10px -5px rgba(${hexToRgb(warningColor[0])}, 0.2)`,
     },
   },

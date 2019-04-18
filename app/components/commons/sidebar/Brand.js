@@ -6,7 +6,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import logo from 'assets/img/reactlogo.png';
+import logo from 'assets/img/icons/reactlogo.png';
 
 const Brand = props => (
   <div className={props.classes.logo}>

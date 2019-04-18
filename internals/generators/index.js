@@ -1,5 +1,5 @@
 /**
- * generator/reducers.js
+ * generator/index.js
  *
  * Exports the generators so plop knows them
  */

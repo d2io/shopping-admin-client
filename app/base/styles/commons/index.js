@@ -23,7 +23,6 @@
 // #############################
 const hexToRgb = rawInput => {
   let refinedInput = `${rawInput}`;
-
   refinedInput = refinedInput.replace('#', '');
   const hexRegex = /[0-9A-Fa-f]/g;
   if (

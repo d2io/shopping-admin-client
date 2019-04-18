@@ -9,7 +9,7 @@ import Hidden from '@material-ui/core/Hidden/index';
 import AdminNavbarLinks from 'components/navbars/AdminNavbarLinks';
 
 import sidebarStyle from 'base/styles/components/sidebar';
-import image from 'assets/img/sidebar-2.jpg';
+import image from 'assets/img/sidebar.jpg';
 import Links from './LinksContainer';
 import Brand from './Brand';
 

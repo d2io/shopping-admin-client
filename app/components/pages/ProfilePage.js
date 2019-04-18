@@ -13,7 +13,7 @@ import {
   MDBRow,
   MDBView,
 } from 'mdbreact';
-import src1 from '../../assets/img/icons/img-1.jpg';
+import src1 from '../../assets/img/img-1.jpg';
 
 const ProfilePage = () => (
   <React.Fragment>

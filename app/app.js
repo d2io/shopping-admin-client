@@ -13,8 +13,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router/immutable';
 import history from 'utils/history';
-import axios from 'axios';
-import Cookies from 'js-cookie';
 
 import 'sanitize.css/sanitize.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -32,13 +30,6 @@ import configureStore from './configureStore';
 // Import i18n messages
 import { translationMessages } from './i18n';
 /* eslint-enable import/no-unresolved, import/extensions */
-
-// axios default config
-axios.defaults.baseURL = 'http://localhost:7991';
-axios.defaults.headers.common.Authorization = Cookies.get('token')
-  ? Cookies.get('token').replace('%20', ' ')
-  : '';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 // Create redux store with history
 const initialState = {};

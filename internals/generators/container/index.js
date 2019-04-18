@@ -67,7 +67,7 @@ module.exports = {
     },
   ],
   actions: data => {
-    // Generate reducers.js and index.test.js
+    // Generate index.js and index.test.js
     var componentTemplate; // eslint-disable-line no-var
 
     switch (data.type) {
@@ -83,7 +83,7 @@ module.exports = {
     const actions = [
       {
         type: 'add',
-        path: '../../app/containers/{{properCase name}}/reducers.js',
+        path: '../../app/containers/{{properCase name}}/index.js',
         templateFile: componentTemplate,
         abortOnFail: true,
       },
